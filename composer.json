@@ -1,5 +1,5 @@
 {
-    "name": "nilsir\/laravel-esign",
+    "name": "biiiiiigmonster/laravel-esign",
     "description": "E签宝-悟空API V2, 支持 laravel",
     "license": "MIT",
     "authors": [
@@ -9,10 +9,10 @@
         }
     ],
     "require": {
-        "php": "^7.2.5",
+        "php": "^7.2.5|^8.0",
         "ext-json": "*",
         "ext-openssl": "*",
-        "guzzlehttp/guzzle": "^6.5",
+        "guzzlehttp/guzzle": "^7.0.1",
         "doctrine/cache": "^1.10",
         "monolog/monolog": "^2.0",
         "pimple/pimple": "^3.3",
