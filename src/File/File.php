@@ -178,7 +178,7 @@ class File extends AbstractAPI
      *
      * @param string $templateId       模板编号
      * @param string $name             文件名称（必须带上文件扩展名，不然会导致后续发起流程校验过不去 示例：合同.pdf ）；
-     * @param string $simpleFormFields 输入项填充内容，key:value 传入
+     * @param array $simpleFormFields  输入项填充内容
      *
      * @return Collection|null
      *
