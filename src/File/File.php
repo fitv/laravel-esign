@@ -112,27 +112,25 @@ class File extends AbstractAPI
     ) {
         $url = sprintf('/v1/docTemplates/%s/components', $templateId);
 
-        $params = [
-            'structComponent' => [
-                'id' => $id,
-                'key' => $key,
-                'type' => $type,
-                'context' => [
-                    'label' => $label,
-                    'required' => $required,
-                    'limit' => $limit,
-                    'style' => [
-                        'width' => $width,
-                        'height' => $height,
-                        'font' => $font,
-                        'fontSize' => $fontSize,
-                        'textColor' => $textColor,
-                    ],
-                    'pos' => [
-                        'page' => $page,
-                        'x' => $x,
-                        'y' => $y,
-                    ],
+        $params['structComponent'][] = [
+            'id' => $id,
+            'key' => $key,
+            'type' => $type,
+            'context' => [
+                'label' => $label,
+                'required' => $required,
+                'limit' => $limit,
+                'style' => [
+                    'width' => $width,
+                    'height' => $height,
+                    'font' => $font,
+                    'fontSize' => $fontSize,
+                    'textColor' => $textColor,
+                ],
+                'pos' => [
+                    'page' => $page,
+                    'x' => $x,
+                    'y' => $y,
                 ],
             ],
         ];

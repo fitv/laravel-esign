@@ -107,9 +107,13 @@ class Http
 
     public function put($url, $options = [])
     {
-        $key = is_array($options) ? 'form_params' : 'body';
+        if (empty($options)) {
+            $data = ['form_params' => []];
+        }else {
+            $data = ['body' => json_encode($options, JSON_UNESCAPED_UNICODE), 'headers' => ['content-type' => 'application/json']];
+        }
 
-        return $this->request($url, 'PUT', [$key => $options]);
+        return $this->request($url, 'PUT', $data);
     }
 
     public function delete($url, $options = [])
