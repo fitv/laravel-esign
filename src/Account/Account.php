@@ -70,7 +70,7 @@ class Account extends AbstractAPI
             'idNumber' => $idNumber,
         ];
 
-        return $this->parseJSON('json', [$url, $params]);
+        return $this->parseJSON('put', [$url, $params]);
     }
 
     /**
@@ -98,7 +98,7 @@ class Account extends AbstractAPI
             'idNumber' => $idNumber,
         ];
 
-        return $this->parseJSON('json', [$url, $params]);
+        return $this->parseJSON('put', [$url, $params]);
     }
 
     /**
