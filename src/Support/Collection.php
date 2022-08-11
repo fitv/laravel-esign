@@ -60,7 +60,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
         foreach ($keys as $key) {
             $value = $this->get($key);
 
-            if (!is_null($value)) {
+            if (! is_null($value)) {
                 $return[$key] = $value;
             }
         }
@@ -107,7 +107,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      */
     public function has($key)
     {
-        return !is_null(Arr::get($this->items, $key));
+        return ! is_null(Arr::get($this->items, $key));
     }
 
     /**
@@ -247,7 +247,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @return Traversable An instance of an object implementing <b>Iterator</b> or
      *                     <b>Traversable</b>
      */
-    public function getIterator()
+    public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->items);
     }
@@ -263,7 +263,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *             <p>
      *             The return value is cast to an integer
      */
-    public function count()
+    public function count(): int
     {
         return count($this->items);
     }
@@ -335,9 +335,9 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *
      * @return array
      */
-    public function __set_state()
+    public static function __set_state(array $properties): object
     {
-        return $this->all();
+        return (object) $properties;
     }
 
     /**
@@ -353,7 +353,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      * @return bool true on success or false on failure.
      *              The return value will be casted to boolean if non-boolean was returned
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->has($offset);
     }
@@ -368,7 +368,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *                      The offset to unset.
      *                      </p>
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         if ($this->offsetExists($offset)) {
             $this->forget($offset);
@@ -405,7 +405,7 @@ class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSeria
      *                      The value to set.
      *                      </p>
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->set($offset, $value);
     }

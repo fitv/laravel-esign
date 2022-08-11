@@ -6,7 +6,7 @@
 ## Installing
 
 ```shell
-$ composer require nilsir/laravel-esign -vvv
+$ composer require fitv/laravel-esign -vvv
 ```
 
 ## Usage
